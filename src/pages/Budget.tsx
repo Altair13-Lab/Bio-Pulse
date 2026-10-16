@@ -1,0 +1,22 @@
+import {useEffect,useState} from 'react';
+import {RotateCcw,Info,Calculator} from 'lucide-react';
+import {PageHeading} from '../components/Layout';
+import {useI18n} from '../i18n';
+import {budgetItems} from '../config/budget';
+import {calculateBudget,isBudgetRow,parsePrice,restoreBudget} from '../lib/budget';
+import {formatNumber} from '../lib/format';
+import {safeRead,safeWrite} from '../lib/storage';
+import type {BudgetRow} from '../lib/types';
+import s from '../App.module.css';
+const defaults=()=>budgetItems.map(i=>({id:i.id,quantity:i.quantity,priceMinor:null}));
+function initial(){const restored=restoreBudget(safeRead('biopulse-budget'),defaults());return{rows:restored.rows.map(r=>({id:r.id,quantity:String(r.quantity),price:r.priceMinor===null?'':(r.priceMinor/100).toFixed(2)})),reserve:String(restored.reservePct)};}
+export function Budget(){const {t}=useI18n();const [draft,setDraft]=useState(initial),[storageOk,setStorageOk]=useState(true);
+ let valid:BudgetRow[]|null=null;let result:ReturnType<typeof calculateBudget>|null=null;
+ try{valid=draft.rows.map(r=>({id:r.id,quantity:/^\d{1,3}$/.test(r.quantity)?Number(r.quantity):NaN,priceMinor:parsePrice(r.price)}));if(!valid.every(isBudgetRow)||!/^\d{1,3}$/.test(draft.reserve))throw new Error('invalid');result=calculateBudget(valid,Number(draft.reserve));}catch{valid=null;}
+ const fingerprint=valid?JSON.stringify({rows:valid,reservePct:Number(draft.reserve)}):null;
+ useEffect(()=>{if(fingerprint)setStorageOk(safeWrite('biopulse-budget',JSON.parse(fingerprint)));},[fingerprint]);
+ const money=(minor:number)=>formatNumber(minor/100,2)+' ₸';
+ const update=(id:string,key:'quantity'|'price',value:string)=>setDraft(v=>({...v,rows:v.rows.map(r=>r.id===id?{...r,[key]:value}:r)}));
+ const reset=()=>setDraft({rows:defaults().map(r=>({id:r.id,quantity:String(r.quantity),price:''})),reserve:'10'});
+ return <div className={`${s.wrap} ${s.page}`}><PageHeading eyebrow="budget.eyebrow" title="budget.title" subtitle="budget.subtitle"/><div className={s.planBanner}><Info size={18}/>{t('budget.notice')}</div><div className={s.budgetLayout}><section className={s.budgetTable}><div className={s.tableScroll} role="region" aria-label={t('nav.budget')} tabIndex={0}><table><thead><tr><th scope="col">{t('budget.component')}</th><th scope="col">{t('budget.quantity')}</th><th scope="col">{t('budget.price')}</th><th scope="col">{t('budget.amount')}</th></tr></thead><tbody>{budgetItems.map(item=>{const row=draft.rows.find(r=>r.id===item.id)!;let amount:string=t('budget.unspecified');try{const price=parsePrice(row.price);if(price!==null&&Number.isInteger(Number(row.quantity))&&Number(row.quantity)>=1&&Number(row.quantity)<=100)amount=money(price*Number(row.quantity));}catch{/* The global validation message describes invalid input. */}return <tr key={item.id}><th scope="row">{t(item.label)}</th><td data-label={t('budget.quantity')}><input className={s.quantityInput} aria-label={`${t('budget.quantity')}: ${t(item.label)}`} type="number" min={1} max={100} step={1} value={row.quantity} onChange={e=>update(item.id,'quantity',e.target.value)}/></td><td data-label={t('budget.price')}><input className={s.priceInput} aria-label={`${t('budget.price')}: ${t(item.label)}`} type="text" inputMode="decimal" placeholder="—" value={row.price} onChange={e=>update(item.id,'price',e.target.value)} maxLength={12}/></td><td data-label={t('budget.amount')} className={s.budgetAmount}>{amount}</td></tr>;})}</tbody></table></div><div className={s.budgetControls}><button className={s.outlineButton} onClick={reset}><RotateCcw size={15}/>{t('budget.reset')}</button><p>{t('budget.saved')}</p></div>{!valid&&<p role="alert" className={s.error}>{t('budget.error')}</p>}{!storageOk&&<p role="status" className={s.error}>{t('common.storage')}</p>}</section><aside className={s.budgetSummary}><Calculator size={27} strokeWidth={1.5}/><h2>{t('budget.total')}</h2><div className={s.budgetTotal} aria-live="polite">{result?money(result.total):'—'}</div><p>{t(result?.unknown===0?'budget.complete':'budget.incomplete')}</p><dl><div><dt>{t('budget.subtotal')}</dt><dd>{result?money(result.subtotal):'—'}</dd></div><div><dt>{t('budget.reserve')}</dt><dd>{result?money(result.reserve):'—'}</dd></div></dl><label className={s.reserveInput}>{t('budget.reservePct')}<input type="number" min={0} max={100} step={1} value={draft.reserve} onChange={e=>setDraft(v=>({...v,reserve:e.target.value}))}/></label>{result&&<span className={s.unknownCount}>{result.unknown} {t('budget.unknown')}</span>}</aside></div></div>;
+}

@@ -1,0 +1,5 @@
+<!doctype html><html lang="kk"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BioPulse · WebGL fallback</title><div id="root"></div><script type="module">
+import React from 'react';import{createRoot}from'react-dom/client';import{I18nProvider}from'/src/i18n/index.tsx';import{Station}from'/src/components/Station.tsx';
+const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(kind,...args){return String(kind).includes('webgl')?null:original.call(this,kind,...args);};
+createRoot(document.getElementById('root')).render(React.createElement(I18nProvider,null,React.createElement(Station)));
+</script></html>

@@ -1,0 +1,13 @@
+STL,Print quantity,X mm,Y mm,Z mm,Triangles,Volume cm3
+01_main_body_rounded.stl,1,120.0,180.0,77.0,16160,228.38
+02_rear_cover_rounded.stl,1,120.0,180.0,5.0,2668,66.16
+04_esp32cam_cradle.stl,1,54.0,54.0,8.0,1200,7.03
+05_internal_tray.stl,1,96.0,130.0,7.0,1512,39.35
+06_bh1750_top_holder.stl,1,32.0,40.0,3.0,1138,2.03
+07_microphone_side_holder.stl,1,34.0,34.0,3.0,1352,2.88
+03a_round_shield_base.stl,1,72.0,72.0,3.0,1372,11.45
+03b_round_shield_louver.stl,4,80.0,80.0,13.0,2060,9.53
+03c_round_shield_cap.stl,1,86.0,86.0,5.0,1288,27.81
+03d_shield_spacer_10mm.stl,3,8.0,8.0,10.0,512,0.41
+08_pole_saddle_32mm.stl,1,64.0,72.0,24.0,1314,94.19
+09_fit_test_coupon.stl,1,62.0,32.0,3.0,1362,5.15

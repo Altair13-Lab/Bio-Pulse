@@ -1,0 +1,30 @@
+{
+  "source": "BioPulse_v2 / 2026-10-12",
+  "axes": {
+    "X": "width_mm",
+    "Y": "height_mm",
+    "Z": "depth_mm"
+  },
+  "sha256": {
+    "requirements.txt": "78b48204a8ac8dcf79a7330f6df0b563762839091cde9fe1728631393f8d18f6",
+    "README_RU.md": "acd295d50ccb2decad35053f352a5953de85b3fcb0f95ecace48b571f3271663",
+    "parts.csv": "f161de15b636d794077ec9ede39c5a0053992d849b4651a0b78aa4c786f66796",
+    "Instructions_RU.html": "61bf44e3d684ab9c0320009db8c4cbb618d7879e8c66ce6bee913526789162a7",
+    "assembly_reference.obj": "e69fd23b3456db24abae378fdc31ff4bf324cbf674f38201244eaa0908b804f6",
+    "assembly_positions.json": "c0fe8daa55eb292c2930563e18d2cc1aea26b5ff01cbbb71f7bc7f53231e654f",
+    "build_models.py": "779ed297a6785d016ac6eebba14f754b39ea0e66d6d8894a41bfeb46d5e107fc",
+    "geometry_report.json": "dbdf18bb0f1e7cb1a28f08d313e57c44d27e0ff56ca84470956a39868f7a7899",
+    "STL/03a_round_shield_base.stl": "dfe08bea4392ff2b094f8808943b053667e33623861ef527d689a317836fa99a",
+    "STL/02_rear_cover_rounded.stl": "8a039ecc5ae01f2744e5c7902ca90afe3fb64be144dab13a1aade52394cdc773",
+    "STL/08_pole_saddle_32mm.stl": "39684225dc17fdf3d28e350bbccef74e37faf860d6bbc1a406476a8ea7ea3309",
+    "STL/03c_round_shield_cap.stl": "c7a03a98b6ce68d75c12c544a14d3bcc83ddc2f28e207cc362cf28acff304960",
+    "STL/01_main_body_rounded.stl": "0e051dcfade4b39fe68d64439c698f4460018543ec9c321f9a0ab64928ecbd44",
+    "STL/03d_shield_spacer_10mm.stl": "67897cd0cd2c80bc07b3809ce61fb91c5e1fbee2f5d8cbdaaf855e9a1cfdc4c6",
+    "STL/07_microphone_side_holder.stl": "0a80b6fb43807216736d5422612c8104897086e55b135665d3cf55630697c9d0",
+    "STL/06_bh1750_top_holder.stl": "29aafe9badc301363fcf9046a411ccf8fda66ffaad6b589a986f7104a86a5f1f",
+    "STL/03b_round_shield_louver.stl": "fe3b5462dc0a2a64d07235d87ea52695419445d12186fdc6508063a0034dc07b",
+    "STL/05_internal_tray.stl": "6be92615af43001c816e0c09b7a69cb400216cace8c3e9bcddaf5615223e4432",
+    "STL/09_fit_test_coupon.stl": "a93a076052a62ff1d5639143bd2fb91e4a4669053c76a6a687e25fa59fabb26d",
+    "STL/04_esp32cam_cradle.stl": "8a7b10a186bcb0fa76870b51cd76ce69e7261925ad37ddcea40eb887038dae8c"
+  }
+}

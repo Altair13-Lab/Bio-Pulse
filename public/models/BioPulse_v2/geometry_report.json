@@ -1,0 +1,228 @@
+{
+  "units": "mm",
+  "body_with_closed_cover_mm": [
+    120,
+    180,
+    80
+  ],
+  "axis_order": "width,height,depth",
+  "design_version": "v2 rounded tall original-description layout",
+  "checks": "STL reloaded: closed mesh, coherent winding, positive volume, one connected solid, finite coordinates, nominal bounding box. Boolean solid intersections checked in assembled positions.",
+  "physical_test_print_performed": false,
+  "assembly_intersections_mm3": [],
+  "parts": [
+    {
+      "file": "01_main_body_rounded.stl",
+      "quantity": 1,
+      "size_mm": [
+        120.0,
+        180.0,
+        77.0
+      ],
+      "triangles": 16160,
+      "watertight": true,
+      "consistent_winding": true,
+      "connected_solids": 1,
+      "volume_mm3": 228378.42,
+      "bytes": 808084,
+      "sha256": "0e051dcfade4b39fe68d64439c698f4460018543ec9c321f9a0ab64928ecbd44"
+    },
+    {
+      "file": "02_rear_cover_rounded.stl",
+      "quantity": 1,
+      "size_mm": [
+        120.0,
+        180.0,
+        5.0
+      ],
+      "triangles": 2668,
+      "watertight": true,
+      "consistent_winding": true,
+      "connected_solids": 1,
+      "volume_mm3": 66159.76,
+      "bytes": 133484,
+      "sha256": "8a039ecc5ae01f2744e5c7902ca90afe3fb64be144dab13a1aade52394cdc773"
+    },
+    {
+      "file": "04_esp32cam_cradle.stl",
+      "quantity": 1,
+      "size_mm": [
+        54.0,
+        54.0,
+        8.0
+      ],
+      "triangles": 1200,
+      "watertight": true,
+      "consistent_winding": true,
+      "connected_solids": 1,
+      "volume_mm3": 7031.22,
+      "bytes": 60084,
+      "sha256": "8a7b10a186bcb0fa76870b51cd76ce69e7261925ad37ddcea40eb887038dae8c"
+    },
+    {
+      "file": "05_internal_tray.stl",
+      "quantity": 1,
+      "size_mm": [
+        96.0,
+        130.0,
+        7.0
+      ],
+      "triangles": 1512,
+      "watertight": true,
+      "consistent_winding": true,
+      "connected_solids": 1,
+      "volume_mm3": 39347.23,
+      "bytes": 75684,
+      "sha256": "6be92615af43001c816e0c09b7a69cb400216cace8c3e9bcddaf5615223e4432"
+    },
+    {
+      "file": "06_bh1750_top_holder.stl",
+      "quantity": 1,
+      "size_mm": [
+        32.0,
+        40.0,
+        3.0
+      ],
+      "triangles": 1138,
+      "watertight": true,
+      "consistent_winding": true,
+      "connected_solids": 1,
+      "volume_mm3": 2027.22,
+      "bytes": 56984,
+      "sha256": "29aafe9badc301363fcf9046a411ccf8fda66ffaad6b589a986f7104a86a5f1f"
+    },
+    {
+      "file": "07_microphone_side_holder.stl",
+      "quantity": 1,
+      "size_mm": [
+        34.0,
+        34.0,
+        3.0
+      ],
+      "triangles": 1352,
+      "watertight": true,
+      "consistent_winding": true,
+      "connected_solids": 1,
+      "volume_mm3": 2876.48,
+      "bytes": 67684,
+      "sha256": "0a80b6fb43807216736d5422612c8104897086e55b135665d3cf55630697c9d0"
+    },
+    {
+      "file": "03a_round_shield_base.stl",
+      "quantity": 1,
+      "size_mm": [
+        72.0,
+        72.0,
+        3.0
+      ],
+      "triangles": 1372,
+      "watertight": true,
+      "consistent_winding": true,
+      "connected_solids": 1,
+      "volume_mm3": 11452.63,
+      "bytes": 68684,
+      "sha256": "dfe08bea4392ff2b094f8808943b053667e33623861ef527d689a317836fa99a"
+    },
+    {
+      "file": "03b_round_shield_louver.stl",
+      "quantity": 4,
+      "size_mm": [
+        80.0,
+        80.0,
+        13.0
+      ],
+      "triangles": 2060,
+      "watertight": true,
+      "consistent_winding": true,
+      "connected_solids": 1,
+      "volume_mm3": 9526.61,
+      "bytes": 103084,
+      "sha256": "fe3b5462dc0a2a64d07235d87ea52695419445d12186fdc6508063a0034dc07b"
+    },
+    {
+      "file": "03c_round_shield_cap.stl",
+      "quantity": 1,
+      "size_mm": [
+        86.0,
+        86.0,
+        5.0
+      ],
+      "triangles": 1288,
+      "watertight": true,
+      "consistent_winding": true,
+      "connected_solids": 1,
+      "volume_mm3": 27807.54,
+      "bytes": 64484,
+      "sha256": "c7a03a98b6ce68d75c12c544a14d3bcc83ddc2f28e207cc362cf28acff304960"
+    },
+    {
+      "file": "03d_shield_spacer_10mm.stl",
+      "quantity": 3,
+      "size_mm": [
+        8.0,
+        8.0,
+        10.0
+      ],
+      "triangles": 512,
+      "watertight": true,
+      "consistent_winding": true,
+      "connected_solids": 1,
+      "volume_mm3": 411.2,
+      "bytes": 25684,
+      "sha256": "67897cd0cd2c80bc07b3809ce61fb91c5e1fbee2f5d8cbdaaf855e9a1cfdc4c6"
+    },
+    {
+      "file": "08_pole_saddle_32mm.stl",
+      "quantity": 1,
+      "size_mm": [
+        64.0,
+        72.0,
+        24.0
+      ],
+      "triangles": 1314,
+      "watertight": true,
+      "consistent_winding": true,
+      "connected_solids": 1,
+      "volume_mm3": 94190.31,
+      "bytes": 65784,
+      "sha256": "39684225dc17fdf3d28e350bbccef74e37faf860d6bbc1a406476a8ea7ea3309"
+    },
+    {
+      "file": "09_fit_test_coupon.stl",
+      "quantity": 1,
+      "size_mm": [
+        62.0,
+        32.0,
+        3.0
+      ],
+      "triangles": 1362,
+      "watertight": true,
+      "consistent_winding": true,
+      "connected_solids": 1,
+      "volume_mm3": 5146.89,
+      "bytes": 68184,
+      "sha256": "a93a076052a62ff1d5639143bd2fb91e4a4669053c76a6a687e25fa59fabb26d"
+    }
+  ],
+  "port_free_volume_checks_mm3": {
+    "camera": 0.0,
+    "BH1750_top": 0.0,
+    "soil_M12": 0.0,
+    "USB": 0.0,
+    "LED_46": 0.0,
+    "LED_60": 0.0,
+    "LED_74": 0.0,
+    "microphone_82_18": 0.0,
+    "microphone_82_21": 0.0,
+    "microphone_82_24": 0.0,
+    "microphone_85_18": 0.0,
+    "microphone_85_21": 0.0,
+    "microphone_85_24": 0.0,
+    "microphone_88_18": 0.0,
+    "microphone_88_21": 0.0,
+    "microphone_88_24": 0.0,
+    "shield_M3_71_40": 0.0,
+    "shield_M3_32_17.4833395": 0.0,
+    "shield_M3_32_62.5166605": 0.0
+  }
+}

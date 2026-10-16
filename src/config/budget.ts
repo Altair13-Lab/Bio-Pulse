@@ -1,0 +1,3 @@
+import type {TranslationKey} from '../i18n/ru';
+export const budgetItems:{id:string;label:TranslationKey;quantity:number}[]=[
+{id:'esp32',label:'component.esp',quantity:1},{id:'camera',label:'component.camera',quantity:1},{id:'microphone',label:'component.microphone',quantity:1},{id:'bme280',label:'component.bme',quantity:1},{id:'bh1750',label:'component.light',quantity:1},{id:'soil',label:'component.soil',quantity:1},{id:'led',label:'budget.led',quantity:3},{id:'housing',label:'budget.housing',quantity:1},{id:'wiring',label:'budget.wiring',quantity:1},{id:'usb',label:'budget.usb',quantity:1}];

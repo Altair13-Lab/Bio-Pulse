@@ -1,0 +1,10 @@
+import {useState} from 'react';
+import {Info,Ruler,Download} from 'lucide-react';
+import {PageHeading} from '../components/Layout';
+import {Station} from '../components/Station';
+import {Installation} from '../components/Installation';
+import {useI18n} from '../i18n';
+import type {ViewMode} from '../lib/types';
+import s from '../App.module.css';
+export const components=['body','lid','platform','cameraMount','pole','fasteners','esp','camera','microphone','leds','bme','light','soil','usb'] as const;
+export function Construction(){const {t}=useI18n();const [mode,setMode]=useState<ViewMode>('closed');return <div className={`${s.wrap} ${s.page}`}><PageHeading eyebrow="construction.eyebrow" title="construction.title" subtitle="construction.subtitle"/><div className={s.constructionViewer}><div className={s.viewerTop}><span className={s.conceptLabel}><Info size={15}/>{t('construction.concept')}</span><div className={s.segment} role="group" aria-label={t('construction.mode')}>{(['closed','open','exploded'] as ViewMode[]).map(v=><button key={v} onClick={()=>setMode(v)} aria-pressed={mode===v}>{t(`construction.${v}`)}</button>)}</div></div><Station mode={mode}/><div className={s.viewerDimension}><Ruler size={20}/><b>{t('home.dimension')}</b><span>{t('construction.scale')}</span></div></div><p className={s.modelNotice}><Info size={17}/>{t('device.geometrySource')}<a href="/models/BioPulse_v2/assembly_reference.obj" download className={s.textLink}><Download size={16}/>OBJ</a></p><div className={s.screenNote}><p>{t('construction.screenNote')}</p></div><section className={s.sectionCompact}><h2>{t('construction.components')}</h2><div className={s.tableScroll} role="region" aria-label={t('construction.components')} tabIndex={0}><table className={s.componentsTable}><thead><tr><th scope="col">{t('construction.component')}</th><th scope="col">{t('construction.purpose')}</th></tr></thead><tbody>{components.map(key=><tr key={key}><th scope="row">{t(`component.${key}`)}</th><td>{t(`purpose.${key}`)}</td></tr>)}</tbody></table></div></section><Installation/></div>;}

@@ -1,0 +1,6 @@
+import {Download,Clock3,FileText,Check,Info} from 'lucide-react';
+import {PageHeading} from '../components/Layout';
+import {useI18n} from '../i18n';
+import {materials,isAvailable} from '../config/materials';
+import s from '../App.module.css';
+export function Materials(){const {t,language}=useI18n();return <div className={`${s.wrap} ${s.page}`}><PageHeading eyebrow="materials.eyebrow" title="materials.title" subtitle="materials.subtitle"/><div className={s.materialsList}>{materials.map((m,i)=>{const file=m.file[language],available=isAvailable(file);return <article key={m.id}><span className={s.materialNumber}>0{i+1}</span><span className={s.fileType}>{m.format}</span><div><h2>{t(m.label)}</h2><span className={available?s.materialAvailable:s.materialPending}>{available?<Check size={13}/>:<Clock3 size={13}/>} {t(available?'materials.available':'materials.pending')}</span></div>{available?<a className={s.outlineButton} href={file} download><Download size={16}/>{t('common.download')}</a>:<button className={s.soonButton} disabled title={t('materials.pending')}><FileText size={15}/>{t('common.soon')}</button>}</article>;})}</div><div className={s.materialsNote}><Info size={20}/><div><p>{t('materials.bomNote')}</p><p>{t('materials.note')}</p></div></div></div>;}

@@ -1,0 +1,4 @@
+import {ShieldCheck,Plug,Leaf,MoveVertical} from 'lucide-react';
+import {useI18n} from '../i18n';
+import s from '../App.module.css';
+export function Installation(){const {t}=useI18n();return <section className={s.installation}><div className={s.sectionHeading}><span className={s.eyebrow}>{t('device.installEyebrow')}</span><h2>{t('device.installTitle')}</h2><p>{t('device.installText')}</p></div><figure><img src="/images/BioPulse_Ortada.png" alt={t('device.installAlt')} loading="lazy" width={1672} height={941}/><figcaption>{t('device.installCaption')}</figcaption></figure><ul className={s.installFacts}>{[{Icon:MoveVertical,key:'mount'},{Icon:Leaf,key:'probe'},{Icon:Plug,key:'power'},{Icon:ShieldCheck,key:'shelter'}].map(({Icon,key})=><li key={key}><Icon size={20}/><span>{t(`device.install.${key}` as 'device.install.mount')}</span></li>)}</ul><p className={s.screenNote}>{t('device.noIP')}</p></section>;}
